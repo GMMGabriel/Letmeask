@@ -8,9 +8,9 @@ import logoImg from '../assets/images/logo.svg';
 import { Button } from '../components/Button';
 import { database, Database } from '../services/firebase';
 
-import '../styles/auth.css';
+// import '../styles/auth.css';
 
-function NewRoom() {
+export function NewRoom() {
     const { user } = useAuth();
     const navigate = useNavigate();
 
@@ -65,5 +65,3 @@ function NewRoom() {
         </div>
     )
 }
-
-export default NewRoom

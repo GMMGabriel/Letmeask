@@ -13,7 +13,7 @@ import { Button } from '../components/Button';
 
 import '../styles/auth.css';
 
-function Home() {
+export function Home() {
     const navigate = useNavigate(); // para utilizar navegação entre páginas
     const { user, signInWithGoogle } = useAuth(); // importa o contexto que está na pasta "hooks"
     const [roomCode, setRoomCode] = useState('');
@@ -78,5 +78,3 @@ function Home() {
         </div>
     )
 }
-
-export default Home
