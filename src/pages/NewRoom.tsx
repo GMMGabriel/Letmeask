@@ -28,11 +28,8 @@ export function NewRoom() {
         await Database.set(dbRoomsPush, {
             title: newRoom,
             authorId: user?.id
-        })
-        .then(() => {
-            console.log("\"set\" finalizado!");
         });
-        navigate(`/rooms/${dbRoomsPush.key}`);
+        navigate(`/admin/rooms/${dbRoomsPush.key}`);
     }
 
     return (

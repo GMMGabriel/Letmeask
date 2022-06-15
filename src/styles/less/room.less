@@ -8,8 +8,20 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            > img{
+            > a {
+                display: block;
                 max-height: 45px;
+                img{
+                    max-height: 45px;
+                }
+            }
+
+            > div{
+                display: flex;
+                gap: 16px;
+                button{
+                    height: 40px;
+                }
             }
         }
     }
@@ -83,6 +95,9 @@
                     }
                 }
             }
+        }
+        .question-list{
+            margin-top: 32px;
         }
     }
 }

@@ -1,15 +1,15 @@
 import { FormEvent, useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
-
+import { toast, Toaster } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
 import { Database, database } from '../services/firebase';
 
+import { Button } from '../components/Button';
+
 import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
 import googleIconImg from '../assets/images/google-icon.svg';
-
-import { Button } from '../components/Button';
 
 import '../styles/auth.css';
 
@@ -33,14 +33,29 @@ export function Home() {
     async function handleJoinRoom(event: FormEvent) {
         event.preventDefault();
 
-        if (roomCode.trim() === '')
+        if (roomCode.trim() === '') {
             return;
+        }
 
         const dbRoomRef = Database.ref(database, `rooms/${roomCode}`);
         const dbRoomGet = await Database.get(dbRoomRef); // pega no banco
         // console.log(dbRoomGet.hasChildren());
         if (!dbRoomGet.hasChildren()) { // Verifica se não tem itens no roomCode
-            alert("Room does not exists.");
+            // alert("Essa sala não existe.");
+            toast.error("Essa sala não existe.", {
+                style: {
+                    background: "#ffcccc",
+                }
+            });
+            return;
+        }
+
+        if (dbRoomGet.val().endedAt) {
+            toast.error("Essa sala já foi encerrada.", {
+                style: {
+                    background: "#ffcccc",
+                }
+            });
             return;
         }
 
@@ -49,6 +64,7 @@ export function Home() {
 
     return (
         <div id="page-auth">
+            <Toaster />
             <aside>
                 <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
                 <strong>Crie salas de Q&amp;A ao-vivo</strong>
@@ -69,7 +85,7 @@ export function Home() {
                             onChange={event => setRoomCode(event.target.value)}
                             value={roomCode}
                         />
-                        <Button type="submit">
+                        <Button type="submit" disabled={roomCode.trim() === ''}>
                             Entrar na sala
                         </Button>
                     </form>
