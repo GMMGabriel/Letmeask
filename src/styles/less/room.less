@@ -1,51 +1,92 @@
 #page-room{
+    margin-bottom: 92px;
     header{
         padding: 24px;
         border-bottom: 1px solid #e2e2e2;
         .content{
+            width: 100%;
             max-width: 1120px;
             margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            > a {
-                display: block;
-                max-height: 45px;
-                img{
+            @media screen and (min-width: 700px){
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            @media screen and (max-width: 700px){
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+            }
+            div{
+                display: flex;
+                align-items: center;
+                gap: 16px;
+            }
+            .logo-and-user {
+                @media screen and (max-width: 700px){
+                    gap: 32px;
+                    margin-bottom: 20px;
+                }
+                a {
+                    display: block;
                     max-height: 45px;
+                    img{
+                        max-height: 45px;
+                    }
+                }
+                > img{
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    cursor: pointer;
                 }
             }
-
-            > div{
-                display: flex;
-                gap: 16px;
+            div + div{
                 button{
                     height: 40px;
+                }
+                @media screen and (max-width: 520px){
+                    // background: darkorange;
+                    display: flex;
+                    flex-direction: column;
+                    button{
+                        width: 100%;
+                    }
                 }
             }
         }
     }
-
     main{
         max-width: 800px;
         margin: 0 auto;
+        @media screen and (max-width: 840px){
+            padding: 0 20px;
+        }
         .room-title{
             margin: 32px 0 24px;
             display: flex;
             align-items: center;
+            @media screen and (max-width: 400px){
+                flex-direction: column;
+                gap: 8px;
+            }
             h1{
                 font-family: 'Poppins', sans-serif;
-                font-size: 24px;
+                font-size: 1.5rem;
                 color: #29292e;
+                span{
+                    font-weight: 400;
+                }
             }
-            span{
+            > span{
                 margin-left: 16px;
-                background: #e559f9;
+                background: linear-gradient(135deg, #4b5bff, #e559f9);
                 border-radius: 9999px;
                 padding: 8px 16px;
                 color: #fff;
                 font-weight: 500;
-                font-size: 14px;
+                font-size: 0.875rem;
             }
         }
 
@@ -62,26 +103,36 @@
             }
             .form-footer{
                 display: flex;
-                justify-content: space-between;
-                align-items: center;
                 margin-top: 16px;
+                @media screen and (min-width: 450px){
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                @media screen and (max-width: 450px){
+                    align-items: flex-end;
+                    flex-direction: column;
+                    gap: 8px;
+                }
                 .user-info{
                     display: flex;
                     align-items: center;
+                    gap: 8px;
                     img{
                         width: 32px;
                         height: 32px;
                         border-radius: 50%;
                     }
                     span{
-                        margin-left: 8px;
                         color: #29292e;
                         font-weight: 500;
-                        font-size: 14px;
+                        font-size: 0.875rem;
+                        @media screen and (max-width: 450px){
+                            order: -1;
+                        }
                     }
                 }
                 .user-needs-to-login{
-                    font-size: 14px;
+                    font-size: 0.875rem;
                     color: #737380;
                     font-weight: 500;
                     button{
@@ -89,7 +140,7 @@
                         border: 0;
                         color: #835afd;
                         text-decoration: underline;
-                        font-size: 14px;
+                        font-size: 0.875rem;
                         font-weight: 500;
                         cursor: pointer;
                     }
@@ -98,6 +149,28 @@
         }
         .question-list{
             margin-top: 32px;
+        }
+        .no-question-list{
+            margin-top: 50px;
+            text-align: center;
+            font-weight: 500;
+            span{
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                &::before{
+                    content: '';
+                    flex: 1;
+                    height: 1px;
+                    background-color: #a8a8b3;
+                }
+                &::after{
+                    content: '';
+                    flex: 1;
+                    height: 1px;
+                    background-color: #a8a8b3;
+                }
+            }
         }
     }
 }

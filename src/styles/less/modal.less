@@ -1,0 +1,52 @@
+.custom-modal{
+    background: #fff;
+    border-radius: 8px;
+
+    text-align: center;
+    img.times{
+        width: 13px;
+        height: 13px;
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        cursor: pointer;
+    }
+    .user-info{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 16px 0;
+        img{
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+        }
+        span{
+            margin-left: 8px;
+            color: #29292e;
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+    }
+    .buttons{
+        display: flex;
+        justify-content: flex-end;
+        gap: 4px;
+        button{
+            padding: 8px 16px;
+            background: transparent;
+            border: 0;
+            border-radius: 9999px;
+            cursor: pointer;
+            &:hover,&:focus{
+                background: #f2f2f2;
+            }
+            &.yes{
+                background: #eefaea;
+                &:hover,&:focus{
+                    background: #dcf5d6;
+                }
+            }
+        }
+    }
+}

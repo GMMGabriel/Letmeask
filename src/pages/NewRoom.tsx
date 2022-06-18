@@ -1,5 +1,7 @@
 import { FormEvent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast, Toaster } from 'react-hot-toast';
+
 import { useAuth } from '../hooks/useAuth';
 
 import illustrationImg from '../assets/images/illustration.svg';
@@ -19,6 +21,16 @@ export function NewRoom() {
 
     async function handleCreateRoom(event: FormEvent) {
         event.preventDefault();
+        if (!user){
+            toast.error("Você não está logado.", {
+                style: {
+                    borderRadius: '9999px',
+                    boxShadow: '0 5px 12px rgba(0, 0, 0, 0.4)',
+                    background: "#ffcccc",
+                }
+            });
+            return;
+        }
         if (newRoom.trim() === '')
             return;
 
@@ -34,6 +46,7 @@ export function NewRoom() {
 
     return (
         <div id="page-auth">
+            <Toaster />
             <aside>
                 <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
                 <strong>Crie salas de Q&amp;A ao-vivo</strong>
@@ -43,14 +56,16 @@ export function NewRoom() {
                 <div className="main-content">
                     <img src={logoImg} alt="Letmeask" />
                     <h2>Criar uma nova sala</h2>
+                    {!user && <span>Atenção: para criar uma sala, você precisa estar logado.</span>}
                     <form onSubmit={handleCreateRoom}>
                         <input
                             type="text"
                             placeholder="Nome da sala"
                             onChange={event => setNewRoom(event.target.value)}
                             value={newRoom}
+                            autoFocus
                         />
-                        <Button type="submit">
+                        <Button type="submit" disabled={!user || newRoom.trim() === ''} >
                             Criar sala
                         </Button>
                     </form>

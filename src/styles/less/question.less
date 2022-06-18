@@ -1,5 +1,6 @@
 .question{
     background: #fefefe;
+    border: 1px solid #fefefe;
     border-radius: 8px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
     padding: 24px;
@@ -8,7 +9,7 @@
     }
     &.highlighted{
         background: #f4f0ff;
-        border: 1px solid #835afd;
+        border-color: #835afd;
         footer .user-info span{
             color: #29292e;
         }
@@ -20,31 +21,47 @@
         color: #29292e;
     }
     footer{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         margin-top: 24px;
+        display: flex;
+        @media screen and (min-width: 530px){
+            justify-content: space-between;
+            align-items: center;
+        }
+        @media screen and (max-width: 530px){
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 16px;
+        }
         .user-info{
             display: flex;
             align-items: center;
+            gap: 8px;
             img{
                 width: 32px;
                 height: 32px;
                 border-radius: 50%;
             }
             span{
-                margin-left: 8px;
                 color: #737380;
-                font-size: 14px;
+                font-size: 0.875rem;
+                @media screen and (max-width: 530px){
+                    order: -1;
+                }
             }
         }
         .admin-buttons{
             display: flex;
+            align-items: center;
             gap: 16px;
+            span{
+                color: #737380;
+            }
         }
         button{
             border: 0;
             background: transparent;
+            display: flex;
+            align-items: center;
             cursor: pointer;
             transition: filter .2s;
             &.like-button{
@@ -52,8 +69,14 @@
                 align-items: flex-end;
                 color: #737380;
                 gap: 8px;
+                span{
+                    color: #737380;
+                }
                 &.liked{
                     color: #835afd;
+                    span{
+                        color: #835afd;
+                    }
                     svg path{
                         stroke: #835afd;
                     }
