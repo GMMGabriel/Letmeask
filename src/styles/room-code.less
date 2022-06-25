@@ -1,0 +1,79 @@
+.room-code{
+    height: 40px;
+    border-radius: 8px;
+    background: var(--l-bg-div);
+    border: 1px solid #835afd;
+    color: var(--l-color);
+    cursor: pointer;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: relative;
+
+    div:not(.hover-information){
+        height: 40px;
+        background: #835afd;
+        padding: 0 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 6px 0 0 6px;
+    }
+    .code{
+        display: block;
+        align-self: center;
+        flex: 1;
+        padding: 0 12px 0 12px;
+        width: 250px;
+        // max-width: 250px;
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+    .hover-information{
+        display: none;
+    }
+    @media screen and (min-width: 720px){
+        &:hover .hover-information{
+            position: absolute;
+            padding: 10px;
+            border: 1px solid #835afd;
+            // color: #737380;
+            border-radius: 8px;
+            top: 45px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            display: block;
+            color: var(--l-color);
+            background: var(--l-bg-div);
+            &::before{
+                background: var(--l-bg-div);
+            }
+            &::before{
+                content: '';
+                // width: 0;
+                // height: 0;
+                // border: 2.5px solid;
+                // border-width: 0 2.5px 5px 2.5px;
+                // border-color: transparent transparent #000 transparent;
+
+                width: 5px;
+                height: 5px;
+                border: 1px solid #835afd;
+                border-right: 0;
+                border-bottom: 0;
+
+                position: absolute;
+                top: -3.75px;
+                left: 50%;
+                transform: translateX(-50%) rotate(45deg);
+            }
+            // &.active{
+            //     display: block;
+            // }
+        }
+    }
+}
