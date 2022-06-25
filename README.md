@@ -3,7 +3,7 @@
 </p>
 
 <h1 align="center">
-    <img alt="Letmeask" src="github/cover.svg" style="max-width: 100%;" />
+    <img alt="Letmeask" src="github/cover.png" style="max-width: 100%;" />
 </h1>
 
 Projeto realizado acompanhando a nlw togther (6ª edição) da [Rocketseat](https://www.rocketseat.com.br/)
