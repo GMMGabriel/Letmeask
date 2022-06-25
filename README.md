@@ -7,7 +7,7 @@
 </h1>
 
 Projeto realizado acompanhando a nlw togther (6ª edição) da [Rocketseat](https://www.rocketseat.com.br/).
-Link para a aplicação: [Letmeask](https://letmeask-ac1604.web.app/).
+`Link para a aplicação: [Letmeask](https://letmeask-ac1604.web.app/).`
 
 ## 🧪 Tecnologias
 
