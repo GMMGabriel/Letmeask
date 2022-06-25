@@ -1,0 +1,1 @@
+span.empty-area{margin-top:50px;text-align:center;font-weight:500;display:flex;align-items:center;gap:16px;color:var(--l-color-alternate-2)}span.empty-area::before{content:'';flex:1;height:1px;background-color:var(--l-color-alternate-2)}span.empty-area::after{content:'';flex:1;height:1px;background-color:var(--l-color-alternate-2)}
