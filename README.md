@@ -6,12 +6,9 @@
     <img alt="Letmeask" src="github/cover.png" style="max-width: 100%;" />
 </h1>
 
-<p>
 Projeto realizado acompanhando a nlw togther (6ª edição) da [Rocketseat](https://www.rocketseat.com.br/).
-</p>
-<p>
+---
 Link para a aplicação: [Letmeask](https://letmeask-ac1604.web.app/).
-</p>
 
 ## 🧪 Tecnologias
 
